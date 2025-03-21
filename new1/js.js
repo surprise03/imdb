@@ -3,6 +3,7 @@ let container = document.createElement("div");
 container.id = "container";
 container.className = "container";
 document.body.appendChild(container);
+let loader=document.getElementById("loader")
 
 // Fetch Dog Image
 async function getData() {
@@ -23,7 +24,7 @@ async function getData() {
 // Show Image (Replace Previous Image)
 function showData(user) {
     let imageUrl = user.message;
-
+     loader.remove();
     container.innerHTML = `
         <h1>Dog Images</h1>
         <div>
@@ -34,6 +35,7 @@ function showData(user) {
 
 // Load Image Initially and Update Every Second
 window.addEventListener("DOMContentLoaded", function () {
+
     getData(); // Load first image immediately
     setInterval(getData, 1000); // Fetch a new image every second
 });
